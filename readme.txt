@@ -9,7 +9,7 @@ Order all items(Pages, Posts, Custom Post Types and attachments) easily with a d
 
 == Description ==
 
-This plugin let you order all items(pages, posts, custom post types and attachments) easily by using a drag and drop sortable javascript. 
+This plugin let you order all items(pages, posts, custom post types and attachments) easily by using a drag and drop sortable javascript.
 
 No configuration is necessary.
 

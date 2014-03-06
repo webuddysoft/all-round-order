@@ -1,5 +1,5 @@
 === All Round Order ===
-Contributors: WebuddySoft 
+Contributors: itsjinlie 
 Tags: page order,post order,custom post type order, attachment order
 Requires at least: 3.6 or higher
 Tested up to: 3.8.0

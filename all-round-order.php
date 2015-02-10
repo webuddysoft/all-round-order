@@ -5,7 +5,7 @@ Plugin URI: http://store.webuddysoft.com
 Description: Posts, Custom Post Types and Media Library Order using a Drag and Drop feature
 Author: Eric So
 Author URI: http://webuddysoft.com
-Version: 1.0.0
+Version: 1.1.0
 */
 
 define('WBSOFT_ORDER_PLUGIN_PATH',   plugin_dir_path(__FILE__));

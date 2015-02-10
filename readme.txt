@@ -2,8 +2,8 @@
 Contributors: itsjinlie 
 Tags: page order,post order,custom post type order, attachment order
 Requires at least: 3.6 or higher
-Tested up to: 3.8.0
-Stable tag: 1.0.0
+Tested up to: 4.1.0
+Stable tag: 1.1.0
 
 Order all items(Pages, Posts, Custom Post Types and attachments) easily with a drag and drop feature
 

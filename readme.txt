@@ -20,3 +20,5 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 = 1.0.0 =
 Initial Release
+= 1.1.0 =
+Fix issue on wordpress 4.1

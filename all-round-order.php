@@ -10,6 +10,7 @@ Version: 1.0.0
 
 define('WBSOFT_ORDER_PLUGIN_PATH',   plugin_dir_path(__FILE__));
 define('WBSOFT_ORDER_PLUGIN_URL',    plugins_url('', __FILE__));
+define('WBSOFT_ORDER_PLUGIN_CAN_SORT',    'manage_options');
 
 require_once(WBSOFT_ORDER_PLUGIN_PATH . '/settings.php');
 require_once(WBSOFT_ORDER_PLUGIN_PATH . '/functions.php');
@@ -28,8 +29,8 @@ function wbsoft_order_plugin_actived()
     if (!isset($options['auto_sort']))
         $options['auto_sort'] = '1';
         
-    if (!isset($options['can_sort']))
-        $options['can_sort'] = 'manage_options';
+/*    if (!isset($options['can_sort']))
+        $options['can_sort'] = 'manage_options';*/
         
     update_option('wbsoft_order_options', $options);
 }
@@ -104,16 +105,14 @@ function wbsoft_order_add_admin_menu()
     
     $options = wbsoft_order_plugin_options();
     //Check Current User Roles    
-    if (!current_user_can($options['can_sort']))
+    if (!current_user_can(WBSOFT_ORDER_PLUGIN_CAN_SORT))
     {
         return;
     }        
     
     //Add order posts section over all post types
     $post_types = get_post_types();
-    
-    $options = wbsoft_order_plugin_options(); 
-    
+        
     foreach( $post_types as $post_type ) 
     {
         //Ignore BBPress
@@ -123,16 +122,16 @@ function wbsoft_order_add_admin_menu()
         //Add Attachment Order
         if($post_type == 'attachment')
         {
-            add_submenu_page('upload.php', __('Custom Order', 'wbso'), __('Custom Order', 'wbso'), $options['can_sort'], 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
+            add_submenu_page('upload.php', __('Custom Order', 'wbso'), __('Custom Order', 'wbso'), WBSOFT_ORDER_PLUGIN_CAN_SORT, 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
         }
             
         
         if ($post_type == 'post')
         {
-            add_submenu_page('edit.php', __('Custom Order', 'wbso'), __('Custom Order', 'wbso'), $options['can_sort'], 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
+            add_submenu_page('edit.php', __('Custom Order', 'wbso'), __('Custom Order', 'wbso'), WBSOFT_ORDER_PLUGIN_CAN_SORT, 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
         }else{
 //            if (!is_post_type_hierarchical($post_type))
-                add_submenu_page('edit.php?post_type='.$post_type, 'Custom Order', 'Custom Order', $options['can_sort'], 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
+                add_submenu_page('edit.php?post_type='.$post_type, 'Custom Order', 'Custom Order', WBSOFT_ORDER_PLUGIN_CAN_SORT, 'custom-order-'.$post_type, 'wbsoft_order_show_order_page');
         }
     }
 }

@@ -24,8 +24,7 @@ function wbsoft_order_plugin_settings()
     {
         //Save Options
         $options = array(
-            'auto_sort' => $_POST['wbso_auto_sort'] ? 1: 0,
-            'can_sort' => 'manage_options'
+            'auto_sort' => $_POST['wbso_auto_sort'] ? 1: 0,            
 //            'can_sort' => $_POST['wbso_can_sort']
         );        
         update_option('wbso_order_options', $options);
